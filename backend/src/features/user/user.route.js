@@ -2,8 +2,10 @@ const User = require("./user.model");
 const express = require("express");
 const app = express.Router();
 const jwt = require("jsonwebtoken");
-const Clientid=process.env.CLIENT_ID
-const clientsecret=process.env.CLIENT_SECRET
+
+// const Clientid=process.env.CLIENT_ID
+// const clientsecret=process.env.CLIENT_SECRET
+
 // console.log(Clientid, clientsecret);
 app.get("/", async (req, res) => {
   let users = await User.find();
@@ -90,8 +92,5 @@ app.post("/refresh", async(req, res)=>{
       return res.send("sign in with github successfully")
     })
 
-    
-
-
-
+   
 module.exports = app;

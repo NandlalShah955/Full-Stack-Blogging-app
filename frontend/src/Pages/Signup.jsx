@@ -101,7 +101,7 @@ data:signupdetails,
          {/* <Button colorScheme="blackAlpha" w="100%" type="submit" mt='20px' gap={3}>
            <BsGithub  size={25}/> Signup Using Github
           </Button> */}
-         <Link href='https://accounts.google.com/o/oauth2/auth/oauthchooseaccount?state=UURLRkI2UUF5K2FOdEwzYjNwVFV0cm8vU1lhaXRpMnlOeDhmaVp2SnRNTmIwSWQ1U1dWb1ZTWGUyMGZTdXpocA&client_id=971390087100-nq1pekkjvhenn2898dr3b7fm7dcl1cjc.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fauth.mongodb.com%2Foauth2%2Fv1%2Fauthorize%2Fcallback&response_type=code&display=page&scope=email%20openid%20profile&service=lso&o2v=1&flowName=GeneralOAuthFlow'>
+         <Link href='http://localhost:8080/auth/google'>
 
            <Button colorScheme="red" w="100%" mt='20px' gap={3}>
             <AiOutlineGoogle size={25}/>Signup using google

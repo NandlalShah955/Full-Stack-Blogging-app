@@ -1,15 +1,23 @@
 var GoogleStrategy = require('passport-google-oauth20').Strategy;
-
+const passport=require("passport")
+const UserModel=require("../features/user/user.model")
+require('dotenv').config() 
 passport.use(new GoogleStrategy({
-    clientID:process.env.GOOGLE_CLIENT_ID,
-    clientSecret:process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://www.example.com/auth/google/callback"
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: "http://localhost:8080/auth/google/callback"
    
 },
   
   function(accessToken, refreshToken, profile, cb) {
-    User.findOrCreate({ googleId: profile.id }, function (err, user) {
-      return cb(err, user);
-    });
+    let email=profile.json.email
+    const user=new UserModel({
+      email,
+      password:"wefsdfsd"
+    })
+       return cb(null, user);
+    
+  console.log(profile)
   }
 ));
+module.exports =passport
