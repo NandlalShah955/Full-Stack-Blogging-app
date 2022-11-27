@@ -1,5 +1,9 @@
 import React from 'react'
 import { useState } from 'react';
+import {AiOutlineGoogle} from 'react-icons/ai'
+import {BsGithub} from 'react-icons/bs'
+import axios from 'axios'
+import {useNavigate} from 'react-router-dom'
 import {
   Button,
   Img,
@@ -10,6 +14,7 @@ import {
 } from "@chakra-ui/react";
 
 function Signup() {
+ const navigate=useNavigate()
   const [signupdetails, setsignupdetails] = useState({ email: "", password: "", username: "" ,age:"" })
   const {email, password, username ,age=""} = signupdetails;
   
@@ -19,7 +24,14 @@ const {name,value}=e.target;
 setsignupdetails=({...signupdetails,[name]:value})
   }
   const handlesubmit=(e)=>{
-
+e.preventDefault();
+axios({method:"POST",
+url:`http://localhost:8080/user/signup`,
+data:signupdetails,
+}).then((res)=>{
+  console.log(res.data.token)
+  
+})
   }
   return (
     <Stack>
@@ -80,6 +92,12 @@ setsignupdetails=({...signupdetails,[name]:value})
 
           <Button colorScheme="blue" w="100%" type="submit">
             Submit
+          </Button>
+          <Button colorScheme="blackAlpha" w="100%" type="submit" mt='20px' gap={3}>
+           <BsGithub  size={25}/> Signup Using Github
+          </Button>
+          <Button colorScheme="red" w="100%" type="submit" mt='20px' gap={3} >
+            <AiOutlineGoogle size={25}/>Signup using google
           </Button>
         </form>
       </VStack>
