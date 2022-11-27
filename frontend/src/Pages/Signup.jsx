@@ -11,12 +11,13 @@ import {
   SimpleGrid,
   Stack,
   VStack,
+  Link,
 } from "@chakra-ui/react";
 
 function Signup() {
  const navigate=useNavigate()
   const [signupdetails, setsignupdetails] = useState([])
-  const {email, password, username ,age=""} = signupdetails;
+  const {email, password, username ,age} = signupdetails;
   
   
   const handleChange=(e)=>{
@@ -38,7 +39,7 @@ data:signupdetails,
     <Stack>
     <SimpleGrid columns={[1, 1, 2, 2]} spacing={10}>
       <VStack justify="center">
-        <Img src="https://th.bing.com/th/id/OIP.g_U9qq46tlzGLfUXCepJQAHaEM?w=285&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" mt={-40}/>
+        <Img src="https://th.bing.com/th/id/OIP.g_U9qq46tlzGLfUXCepJQAHaEM?w=285&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" />
       </VStack>
       <VStack spacing={10} h="80vh" p={10}>
         <form onSubmit={handlesubmit}> 
@@ -84,7 +85,7 @@ data:signupdetails,
 
           />
             <label htmlFor="password">Gender</label>
-         <select>Gender
+         <select>
           <option value="Male">Male</option>
           <option value="Female">Female</option>
          </select>
@@ -93,12 +94,22 @@ data:signupdetails,
           <Button colorScheme="blue" w="100%" type="submit">
             Submit
           </Button>
-          <Button colorScheme="blackAlpha" w="100%" type="submit" mt='20px' gap={3}>
+          
+          <Link href='https://github.com/login/oauth/authorize?client_id=4ef7f154a7473a48d0ed'>
+         <Button colorScheme="blackAlpha" w="100%" mt='20px' gap={3} ><BsGithub  size={25}/> Signup Using Github</Button>
+         </Link>
+         {/* <Button colorScheme="blackAlpha" w="100%" type="submit" mt='20px' gap={3}>
            <BsGithub  size={25}/> Signup Using Github
-          </Button>
-          <Button colorScheme="red" w="100%" type="submit" mt='20px' gap={3} >
+          </Button> */}
+         <Link href='https://accounts.google.com/o/oauth2/auth/oauthchooseaccount?state=UURLRkI2UUF5K2FOdEwzYjNwVFV0cm8vU1lhaXRpMnlOeDhmaVp2SnRNTmIwSWQ1U1dWb1ZTWGUyMGZTdXpocA&client_id=971390087100-nq1pekkjvhenn2898dr3b7fm7dcl1cjc.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fauth.mongodb.com%2Foauth2%2Fv1%2Fauthorize%2Fcallback&response_type=code&display=page&scope=email%20openid%20profile&service=lso&o2v=1&flowName=GeneralOAuthFlow'>
+
+           <Button colorScheme="red" w="100%" mt='20px' gap={3}>
             <AiOutlineGoogle size={25}/>Signup using google
           </Button>
+         
+         </Link>
+         
+          
         </form>
       </VStack>
     </SimpleGrid>

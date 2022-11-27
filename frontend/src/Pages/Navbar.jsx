@@ -8,7 +8,7 @@ function Navbar() {
 console.log("HI")
  }
   return (
-    <HStack w="100%" h="60px" border="2px solid gray" px={5}>
+    <HStack w="100%" h="60px" border="2px solid gray" px={5} bg="yellow">
     <HStack>
       <Link to="/">
         <Button colorScheme="blue">HOME</Button>
