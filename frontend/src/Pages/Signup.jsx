@@ -15,7 +15,7 @@ import {
 
 function Signup() {
  const navigate=useNavigate()
-  const [signupdetails, setsignupdetails] = useState({ email: "", password: "", username: "" ,age:"" })
+  const [signupdetails, setsignupdetails] = useState([])
   const {email, password, username ,age=""} = signupdetails;
   
   
@@ -30,6 +30,7 @@ url:`http://localhost:8080/user/signup`,
 data:signupdetails,
 }).then((res)=>{
   console.log(res.data.token)
+  navigate('/login')
   
 })
   }
@@ -45,7 +46,7 @@ data:signupdetails,
           <label htmlFor="name">Name</label>
           <Input
             rounded="false"
-            id="name"
+           
             name="username"
             type="text"
              onChange={handleChange}
@@ -55,7 +56,6 @@ data:signupdetails,
           <label htmlFor="email">Email Address</label>
           <Input
             rounded="false"
-            id="email"
             name="email"
             type="email"
             onChange={handleChange}
