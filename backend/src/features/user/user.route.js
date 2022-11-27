@@ -25,7 +25,7 @@ app.post("/login", async (req, res) => {
       { id: users._id, name: users.name },
       "SECRET1234",
       {
-        expiresIn: "7 days",
+        expiresIn: "1 hour",
       });
       const refreshToken = jwt.sign({},"REFRESHSECRET",{expiresIn:"7 days"})
       return res.send({message:"Login successfully",token,refreshToken});
@@ -43,7 +43,7 @@ app.post("/refresh", async(req, res)=>{
       try {
         const verification=jwt.verify(refershedtoken,"REFRESHSECRET")
         if(verification){
-          const newtoken=jwt.sign({},"SECRET1234",{expiresIn:"5 mins"})
+          const newtoken=jwt.sign({},"SECRET1234",{expiresIn:"1 hour"})
           return res.send({token:newtoken})
         }
       } catch (error) {
