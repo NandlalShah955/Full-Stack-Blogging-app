@@ -1,8 +1,15 @@
 import React from 'react'
 import {Routes,Route} from 'react-router-dom'
+import Login from './Login'
+import Signup from './Signup'
+import Homepage from './Homepage'
 function Allroutes() {
   return (
-    <div>Allroutes</div>
+    <Routes>
+      <Route path='/' element={<Homepage/>}></Route>
+      <Route path='/signup' element={<Signup/>}></Route>
+      <Route path='/login' element={<Login/>}></Route>
+    </Routes>
   )
 }
 
