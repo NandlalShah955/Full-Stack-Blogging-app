@@ -95,7 +95,7 @@ data:signupdetails,
             Submit
           </Button>
           
-          <Link href='https://github.com/login/oauth/authorize?client_id=4ef7f154a7473a48d0ed'>
+          <Link href='http://localhost:8080/auth/github'>
          <Button colorScheme="blackAlpha" w="100%" mt='20px' gap={3} ><BsGithub  size={25}/> Signup Using Github</Button>
          </Link>
          {/* <Button colorScheme="blackAlpha" w="100%" type="submit" mt='20px' gap={3}>

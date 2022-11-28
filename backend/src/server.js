@@ -3,6 +3,7 @@ const connect=require("./config/db")
 const express=require('express')
 const Userroute=require("./features/user/user.route")
 const passport=require("./config/google.auth")
+const passportgit=require("./config/github.auth")
 const app = express()
 const PORT=process.env.PORT
 app.use(express.urlencoded({ extended:true }))
@@ -19,7 +20,17 @@ function(req, res) {
   // Successful authentication, redirect home.
   res.redirect('/');
 });
+
    
+app.get('/auth/github',
+passportgit.authenticate('github', { scope: [ 'user:email' ] }));
+
+app.get('/auth/github/callback', 
+passportgit.authenticate('github', { failureRedirect: '/login' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/');
+  });
 
 
 

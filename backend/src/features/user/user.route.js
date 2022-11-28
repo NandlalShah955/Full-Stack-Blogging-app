@@ -83,14 +83,16 @@ app.post("/refresh", async(req, res)=>{
     // const filepath=require("../../../../frontend/src/Pages/Signup.js")
     // Login using github 
     // const jel=require("./")
-    app.get('/signup/github',(req,res)=>{
-      res.sendFile(__dirname + '/index.html');
-    })
-    app.get("/github/callback",(req,res)=>{
-      const {code}=req.query;
-      console.log("github code",code)
-      return res.send("sign in with github successfully")
-    })
+    // app.get('/signup/github',(req,res)=>{
+    //   res.sendFile(__dirname + '/index.html');
+    // })
+    // app.get("/github/callback",(req,res)=>{
+    //   const {code}=req.query;
+    //   console.log("github code",code)
+    //   return res.send("sign in with github successfully")
+    // })
+
+    
 
    
 module.exports = app;
