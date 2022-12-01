@@ -2,13 +2,15 @@ require("dotenv").config()
 const connect=require("./config/db")
 const express=require('express')
 const Userroute=require("./features/user/user.route")
+const Postroute=require("./features/posts/post.route")
 const passport=require("./config/google.auth")
 const passportgit=require("./config/github.auth")
 const app = express()
 const PORT=process.env.PORT
 app.use(express.urlencoded({ extended:true }))
 app.use(express.json())
-app.use("/user",Userroute)
+app.use("/users",Userroute)
+app.use("/posts",Postroute)
 app.get('/',(req,res)=>res.send('hello'))
 
 app.get("/auth/google",
