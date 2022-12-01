@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, HStack, Spacer, Text } from "@chakra-ui/react";
+import { Button, HStack, Spacer } from "@chakra-ui/react";
 import {Link} from 'react-router-dom'
 
 
@@ -15,7 +15,7 @@ console.log("HI")
       </Link>
     </HStack>
     <Spacer />
-    <HStack w="20%" justify="space-evenly">
+    <HStack w="30%" justify="space-around" gap={1}>
       <Link to="/signup">
         <Button colorScheme="blue">SignUp</Button>
       </Link>
@@ -27,6 +27,10 @@ console.log("HI")
       {/* {token && ( */}
         <Button colorScheme="blue" onClick={handleLogout}>
           LogOut
+        </Button>
+
+        <Button colorScheme='blue' w='100px'>
+          <Link to='/admin'>AdminPanel</Link>
         </Button>
       {/* )} */}
     </HStack>
