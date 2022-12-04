@@ -1,4 +1,4 @@
-const Post=require("./post.model")
+const Post=require("../../models/post.model")
 const express= require("express")
 const app=express.Router()
 
