@@ -2,20 +2,43 @@ const User = require("./user.model");
 const express = require("express");
 const app = express.Router();
 const jwt = require("jsonwebtoken");
+const nodemailer=require("nodemailer")
+const Username=process.env.GMAIL_USERNAME
+const password=process.env.GMAIL_PASSWORD
 
-// const Clientid=process.env.CLIENT_ID
-// const clientsecret=process.env.CLIENT_SECRET
 
-// console.log(Clientid, clientsecret);
+
+
+
 app.get("/", async (req, res) => {
   let users = await User.find();
   res.send(users);
 });
 app.post("/signup", async (req, res) => {
+  const otp=Math.round(1000+Math.random()*9000)
+  // console.log(otp)
   try {
     let users = await User.create({
       ...req.body,
+   
+   
+   
     });
+    const transporter = nodemailer.createTransport({
+      host: 'smtp.ethereal.email',
+      port: 587,
+      auth: {
+          user: Username,
+          pass: password
+      }
+  });
+   transporter.sendMail({
+    from: 'nandlalsaw7789@gmail.com', // sender address
+    to: "bar@example.com, baz@example.com", // list of receivers
+    subject: "Otp for registration", // Subject line
+    text: " Here is your Otp", // plain text body
+    html: `Otp is ${otp}`, // html body
+  });
     res.send(users);
   } catch (e) {
     res.status(404).send(e.message);
@@ -93,6 +116,6 @@ app.post("/refresh", async(req, res)=>{
     // })
 
     
-
+    
    
 module.exports = app;
