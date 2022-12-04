@@ -26,27 +26,27 @@ function Addpost() {
           <Input
             rounded="false"
            
-            name="username"
-            type="text"
+            name="link"
+            type="url"
             //  onChange={handleChange}
             //  value={username}
             mb={5}
           />
-          <label htmlFor="email">Title</label>
+          <label htmlFor="title">Title</label>
           <Input
             rounded="false"
-            name="email"
-            type="email"
+            name="title"
+            type="text"
             // onChange={handleChange}
             // value={email}
             mb={5}
           />
-          <label htmlFor="password">Description</label>
+          <label htmlFor="desc">Description</label>
           <Input
             rounded="false"
-            id="password"
-            name="password"
-            type="password"
+            id="desc"
+            name="desc"
+            type="text"
             // onChange={handleChange}
             // value={password}
             mb={5}
