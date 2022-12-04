@@ -50,7 +50,7 @@ app.post("/login", async (req, res) => {
   let users = await User.findOne({ email, password });
   if (users) {
     const token = jwt.sign(
-      { id: users._id, name: users.name },
+      { id: users._id, name: users.name ,role:users.role},
       "SECRET1234",
       {
         expiresIn: "1 hour",

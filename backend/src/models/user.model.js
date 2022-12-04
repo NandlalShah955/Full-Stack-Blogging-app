@@ -5,6 +5,7 @@ const userScehma=new mongoose.Schema({
     password: { type: String, required: true },
     age: { type: Number,min:20,max:90 ,required:true},
     gender: {type: String,enum:["Male","Female"]},
+    // role:{type: String,required:true,enum:["Admin","Writer","User",]}
   },{
       versionKey:false,
 })
