@@ -1,4 +1,5 @@
 const User = require("../../models/user.model");
+const Getusers=require("../../controllers/user.controller")
 const express = require("express");
 const app = express.Router();
 const jwt = require("jsonwebtoken");
@@ -11,8 +12,8 @@ const password=process.env.GMAIL_PASSWORD
 
 
 app.get("/", async (req, res) => {
-  let users = await User.find();
-  res.send(users);
+  let allusers = await Getusers();
+  return res.send(allusers);
 });
 app.post("/signup", async (req, res) => {
   const otp=Math.round(1000+Math.random()*9000)
@@ -103,19 +104,5 @@ app.post("/refresh", async(req, res)=>{
      
        
     })
-    // const filepath=require("../../../../frontend/src/Pages/Signup.js")
-    // Login using github 
-    // const jel=require("./")
-    // app.get('/signup/github',(req,res)=>{
-    //   res.sendFile(__dirname + '/index.html');
-    // })
-    // app.get("/github/callback",(req,res)=>{
-    //   const {code}=req.query;
-    //   console.log("github code",code)
-    //   return res.send("sign in with github successfully")
-    // })
-
     
-    
-   
 module.exports = app;
