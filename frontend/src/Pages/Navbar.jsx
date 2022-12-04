@@ -15,7 +15,7 @@ console.log("HI")
       </Link>
     </HStack>
     <Spacer />
-    <HStack w="30%" justify="space-around" gap={1}>
+    <HStack w="50%" justify="space-around" gap={1}>
       <Link to="/signup">
         <Button colorScheme="blue">SignUp</Button>
       </Link>
@@ -29,7 +29,10 @@ console.log("HI")
           LogOut
         </Button>
 
-        <Button colorScheme='blue' w='100px'>
+        <Button colorScheme='blue' w='120px'>
+          <Link to='/writerpage'>WriterPage</Link>
+        </Button>
+        <Button colorScheme='blue' w='120px'>
           <Link to='/admin'>AdminPanel</Link>
         </Button>
       {/* )} */}

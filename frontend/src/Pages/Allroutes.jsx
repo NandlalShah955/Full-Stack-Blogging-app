@@ -5,6 +5,7 @@ import Signup from "./Signup";
 import Homepage from "./Homepage";
 import Privateroute from "../Components/Privateroute";
 import AdminPanel from "./AdminPanel";
+import Addpost from "./Addpost";
 function Allroutes() {
   return (
     <Routes>
@@ -19,6 +20,7 @@ function Allroutes() {
       <Route path="/" element={<Homepage />}></Route>
       <Route path="/signup" element={<Signup />}></Route>
       <Route path="/login" element={<Login />}></Route>
+      <Route path="/writerpage" element={<Addpost />}></Route>
     </Routes>
   );
 }
